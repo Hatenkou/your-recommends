@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400');
+
+
+.movie-card {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 800px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, .4);
+  color: white;
+  padding: 2vh 3%;
+}
+.movie-card:after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(to right, rgba(40,40,60,1) 0%,rgba(40,0,60,0) 90%);
+  background-blend-mode: multiply;
+  will-change: transform;
+  z-index: 0;
+}
+
+.movie-card__container{
+   width: 100%;
+   height: 100%;
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+}
+
+.movie-card__container-top{
+
+   padding: 0 25px;
+   
+}
+.movie-card__container-bottom{
+   padding: 0 25px;
+   align-self: flex-end;
+}
+.movie-card__container-delete{
+   display: flex;
+   align-self:flex-end;
+
+}
+
+
+.movie-card__title {
+  font-size: 170%;
+  margin: 4vh auto;
+  position: relative;
+  z-index: 10;
+}
+.movie-card__vote {
+   display: block;
+   position: relative;
+   z-index: 10;
+   color: rgb(210, 210, 210);
+   align-items: center;
+   background-color: #f68d01;
+   border-radius: 50%;
+   box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+   height: 2.25em;
+   padding: 0.5em;
+   right: 0;
+   text-align: center;
+   bottom: 0;
+   transform: translateX(50%);
+   width: 2.25em;
+}
+.movie-card__delete {
+   display: block;
+   border: 1px solid white;
+   border-radius: 50%;
+   position: relative;
+   z-index: 10;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   background: rgba(0, 0, 0, .3);
+   margin: 20px 0px;
+   outline: none;
+   box-shadow: 0 0 10px rgba(0,0,0,.5);
+   transition: all .2s;
+ }
+ button:hover {
+   background: rgba(255, 255, 255, .8);
+   color: black;
+   box-shadow: 0 0 10px rgba(255,255,255,.5);
+   mix-blend-mode: screen;
+ }
+ button:active {
+   transform: translateY(2px);
+ }
+ p {
+   position: relative;
+   z-index: 10;
+   font-size: .8em;
+   width: 60%;
+   height: 35%;
+ }
+
+
+
+
+
