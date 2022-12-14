@@ -22,3 +22,12 @@ These dependencies were used when creating the client side of the app
     "react-share"
     "sass"
     "web-vitals"
+
+These dependencies were used when creating the server side of the app 
+    "@apollo/server"
+    "apollo-server-express"
+    "axios"
+    "date-fns"
+    "express"
+    "graphql"
+    "nodemon"

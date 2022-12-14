@@ -1,0 +1,75 @@
+ type Query {
+    movies(filter: MoviesFilterInput): Movies
+    moviesByIds(ids:[Int]): [Movie]
+    moviePage(id:Int):Movie
+    genres: [Genre]
+    video(id:Int):Video
+  }
+
+
+ input MoviesFilterInput {
+    page: Int,
+    sortBy: String,
+    sortDirection: SORT_DIRECTION,
+    includeAdult: Boolean
+    year: Int
+    primaryReleaseYear: Int
+    genre: Int
+}
+
+enum SORT_DIRECTION {
+    desc,
+    asc
+}
+
+  type Movies {
+    page: Int!
+    totalResults: Int!
+    totalPages: Int!
+    results: [Movie!]!
+  }
+
+
+type Movie{
+  id: ID!
+  title: String!
+  originalTitle: String
+  releaseDate(format: String): String!
+  posterPath: String!
+  genres: [Genre]!
+  abult: Boolean
+  overview:String
+  originalLanguege:String
+  backdropPath:String
+  popularity:Float
+  voteCount:Int
+  video: Boolean
+  voteAverage:Float
+  runtime:Int!
+  tagline:String!
+  }
+
+type Genre {
+  id:Int!
+  name: String
+}
+
+type Video{
+  id:Int!
+  results:[ResultsVideo]!
+
+}
+
+type ResultsVideo{
+  iso_639_1: String
+  iso_3166_1: String
+  name:String
+  key:String
+  site:String
+  size:Int
+  type:String
+  official:Boolean
+  published_at:String
+  id:String!
+}
+
