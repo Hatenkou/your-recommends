@@ -21,12 +21,12 @@ import {
 
 import I18nProvider from './providers/i18n';
 import { AppContext } from './providers/appContext';
-import { Navigation } from '../src/componennts/index';
-import { Home, Settings, Reccomend, MoviePage } from './pages/index';
+import { Navigation } from '../src/components/index';
+import { Home, Reccomend, MoviePage } from './pages/index';
 
 function App() {
   const { state } = useContext(AppContext);
-  const httpLink = new HttpLink({ uri: `${window.location.origin}/graphql` });
+  const httpLink = new HttpLink({ uri: `http://localhost:4000/graphql` });
   const localeMiddleware = new ApolloLink((operation, forward) => {
     const customHeaders = operation.getContext().hasOwnProperty("headers") ? operation.getContext().headers : {};
 
@@ -54,7 +54,6 @@ function App() {
           <Box sx={{ backgroundColor: (theme) => theme.palette.grey[300] }}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="settings" element={<Settings />} />
               <Route path="recommend" element={<Reccomend />} />
               <Route path="movie" element={<MoviePage />} />
             </Routes>

@@ -3,8 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 import { Grid } from '@mui/material/';
 import Typography from '@mui/material/Typography';
-import { MOVIES_BY_IDS_QUERY } from "../../Queries/queries";
-import Movie from "../../componennts/MovieCard/MovieCard";
+import { MOVIES_BY_IDS_QUERY } from "../../queries/queries";
+import Movie from "../../components/MovieCard/MovieCard";
 
 const Recommend = () => {
 

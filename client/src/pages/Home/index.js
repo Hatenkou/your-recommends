@@ -1,16 +1,16 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { Box, Grid, Pagination } from '@mui/material/';
-import { MOVIES_QUERY } from '../../Queries/queries';
+import { MOVIES_QUERY } from '../../queries/queries';
 import {
    ListMoviesSection,
    Filters,
    SelectedMoviesSection,
-} from '../../componennts/index';
-import { useMovies } from '../../Hooks/useMovies';
-import { useFilters } from '../../Hooks/useFilters';
-import Loading from '../../componennts/Loading';
-import ErrorComponent from '../../componennts/ErrorComponent';
+} from '../../components/index';
+import { useMovies } from '../../hooks/useMovies';
+import { useFilters } from '../../hooks/useFilters';
+import Loading from '../../components/Loading';
+import ErrorComponent from '../../components/ErrorComponent';
 
 
 

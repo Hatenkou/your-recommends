@@ -10,7 +10,7 @@ import {
 
    SelectedMoviesForm,
    ConfirmModal
-} from '../../componennts'
+} from '../../components'
 import noMoviesImageSrc from '../../assets/CinemaTransparent.png';
 import { FormattedMessage } from "react-intl";
 import { AppContext } from '../../providers/appContext';

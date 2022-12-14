@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { useSearchParams } from "react-router-dom";
-import { MOVIE_BY_ID_QUERY } from "../../Queries/queries";
+import { MOVIE_BY_ID_QUERY } from "../../queries/queries";
 import { FormattedMessage } from "react-intl";
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import './style.scss';

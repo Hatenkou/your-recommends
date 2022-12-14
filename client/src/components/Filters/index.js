@@ -2,7 +2,7 @@ import { Form } from 'react-final-form'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { SortField, SortDirectionField, AdultField, YearField, SubmitField, ReleaseYearField, GenreField } from './components';
-import { GENRES_QUERY } from '../../Queries/queries';
+import { GENRES_QUERY } from '../../queries/queries';
 import { useQuery } from "@apollo/client";
 import Loading from '../Loading';
 import ErrorComponent from '../ErrorComponent';
