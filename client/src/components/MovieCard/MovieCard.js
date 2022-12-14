@@ -36,8 +36,13 @@ const Movie = ({ movie, onCardSelect, isPreviewMode }) => {
    const onSubmit = () => {
       const id = movie.id
       const link = `${window.location}movie?id=${id}&locale=${state.locale}`;
-      setLink(link);
+      const linkTwo = `movie?id=${id}&locale=${state.locale}`;
+      if (!isPreviewMode) {
+         return setLink(link);
+      } else {
+         return setLink(linkTwo);
 
+      }
    };
 
    return (
