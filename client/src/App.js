@@ -26,7 +26,7 @@ import { Home, Reccomend, MoviePage } from './pages/index';
 //1
 function App() {
   const { state } = useContext(AppContext);
-  const httpLink = new HttpLink({ uri: `https://sample-app.cyclic.app` });
+  const httpLink = new HttpLink({ uri: `graphql` });
   const localeMiddleware = new ApolloLink((operation, forward) => {
     const customHeaders = operation.getContext().hasOwnProperty("headers") ? operation.getContext().headers : {};
 
