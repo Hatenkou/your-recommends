@@ -35,8 +35,8 @@ const Movie = ({ movie, onCardSelect, isPreviewMode }) => {
    const [link, setLink] = useState('');
    const onSubmit = () => {
       const id = movie.id
-      const link = `https://sample-app.cyclic.app/movie?id=${id}&locale=${state.locale}`;
-      const linkTwo = `https://sample-app.cyclic.app/movie?id=${id}&locale=${state.locale}`;
+      const link = `${window.location}movie?id=${id}&locale=${state.locale}`;
+      const linkTwo = `movie?id=${id}&locale=${state.locale}`;
       if (!isPreviewMode) {
          return setLink(link);
       } else {
