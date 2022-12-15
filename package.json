@@ -3,9 +3,9 @@
    "version": "1.0.0",
    "description": "",
    "scripts": {
-      "build": "react-scripts build",
+      "build": " './client' react-scripts build",
       "test": "echo \"No test specified\" && exit 1",
-      "server": "node ./src/index.js"
+      "start": "node server/src/index.js"
    },
    "repository": {
       "type": "git",
