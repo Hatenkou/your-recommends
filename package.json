@@ -2,6 +2,7 @@
    "name": "your-recommends",
    "version": "1.0.0",
    "description": "",
+   "main": "./server/src/index.js",
    "scripts": {
       "build": "cd client && npm run build",
       "test": "echo \"No test specified\" && exit 1",
