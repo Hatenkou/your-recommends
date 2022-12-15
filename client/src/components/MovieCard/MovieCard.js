@@ -35,7 +35,7 @@ const Movie = ({ movie, onCardSelect, isPreviewMode }) => {
    const [link, setLink] = useState('');
    const onSubmit = () => {
       const id = movie.id
-      const link = `${window.location.origin}movie?id=${id}&locale=${state.locale}`;
+      const link = `https://charming-cardigan-fly.cyclic.app/movie?id=${id}&locale=${state.locale}`;
       const linkTwo = `movie?id=${id}&locale=${state.locale}`;
       if (!isPreviewMode) {
          return setLink(link);
