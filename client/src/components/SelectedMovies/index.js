@@ -49,7 +49,7 @@ const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
 
    const onSubmit = ({ listName }) => {
       const ids = selectedMovies.map(({ id }) => id)
-      const link = `${window.location}recommend?title=${listName}&locale=${state.locale}&ids=${ids.join()}`;
+      const link = `http://localhost:3000/recommend?title=${listName}&locale=${state.locale}&ids=${ids.join()}`;
       setLink(link);
       setListName(listName);
    }
