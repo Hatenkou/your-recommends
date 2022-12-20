@@ -25,7 +25,7 @@ import { Home, Reccomend, MoviePage } from './pages/index';
 
 
 function App() {
-  const httpLink = new HttpLink({ uri: `http://localhost:3000/graphql` });
+  const httpLink = new HttpLink({ uri: `graphql` });
   const { state } = useContext(AppContext);
   const localeMiddleware = new ApolloLink((operation, forward) => {
     const customHeaders = operation.getContext().hasOwnProperty("headers") ? operation.getContext().headers : {};
