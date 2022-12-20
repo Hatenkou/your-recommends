@@ -18,7 +18,7 @@ const MovieInfo = ({ movieId }) => {
    if (error) {
       return <ErrorComponent />;
    };
-   console.log(data.moviePage);
+
    return (
 
       <>
