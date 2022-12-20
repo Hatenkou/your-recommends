@@ -4,6 +4,7 @@ import { MAX_SELECTED_MOVIES } from '../../const'
 
 export const useMovies = () => {
    const [selectedMovies, setSelectedMovies] = useState([]);
+   const [idMovie, setIdMovie] = useState([]);
 
    const selectMovie = useCallback((movie) => {
       const length = selectedMovies.length;
@@ -19,9 +20,10 @@ export const useMovies = () => {
 
    }, [selectedMovies]);
 
+
    return {
       selectedMovies,
       selectMovie,
-      deleteMovie
+      deleteMovie,
    }
 }

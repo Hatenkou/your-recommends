@@ -1,14 +1,16 @@
-import { useState, useContext } from 'react';
-import { AppContext } from '../../providers/appContext';
-import PropTypes from 'prop-types';
+import { useState, useCallback } from 'react';
 import {
    IconButton,
    Link,
+   Grid,
 } from '@mui/material/';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import './style.scss';
 import { styled } from '@mui/material/styles';
+import noImege from '../../assets/noImage.png'
+import MovieModal from '../MovieModal'
+
 
 const Pageview = styled(Link)(({ theme }) => ({
    background: 'rgba(255, 255, 255, 1)',
@@ -29,69 +31,78 @@ const Favorite = styled(IconButton)(({ theme }) => ({
    bottom: 35,
 }));
 
-const Movie = ({ movie, onCardSelect, isPreviewMode }) => {
+const Movie = ({ data, onCardSelect, isPreviewMode, }) => {
+   const [open, setOpen] = useState(false);
+   const handleOpen = () => setOpen(true);
+   const handleClose = () => setOpen(false);
+   const [movieId, setMovieId] = useState();
 
-   const { state } = useContext(AppContext);
-   const [link, setLink] = useState('');
-   const onSubmit = () => {
-      const id = movie.id
-      const link = `https://charming-cardigan-fly.cyclic.app/movie?id=${id}&locale=${state.locale}`;
-      const linkTwo = `movie?id=${id}&locale=${state.locale}`;
-      if (!isPreviewMode) {
-         return setLink(link);
-      } else {
-         return setLink(linkTwo);
 
-      }
+   const toggleModal = useCallback((id) => () => {
+      handleOpen();
+      setMovieId((prev) => id)
+   }, []);
+
+
+
+   const onCloseMovieModal = () => {
+      handleClose();
    };
 
    return (
-      <div className="movie">
-         <figure className="movie__figure">
-            <figcaption className="movie__vote--container">
-               <span className="movie__vote">{movie.voteAverage}</span>
-               <Pageview
-                  onClick={() => onSubmit(link)}
-                  href={link}
-                  target="_blank"
-                  aria-label="add to favorites"
+      <>
 
-               >
-                  <PageviewIcon />
-               </Pageview>
-               {!isPreviewMode && (
-                  <Favorite
-                     onClick={() => onCardSelect(movie)}
-                     aria-label="add to favorites"
-                  >
-                     <FavoriteIcon style={{
-                        color: 'red',
-                     }} />
-                  </Favorite>
-               )}
-               <img
-                  alt={movie.title}
-                  src={movie.image}
-                  className="movie__poster"
+         {
+            data.movies.results.map((movie) => (
+               <Grid key={movie.id} item xs={10} md={4} lg={3}>
+                  <div className="movie">
+                     <figure className="movie__figure">
+                        <figcaption className="movie__vote--container">
+                           <span className="movie__vote">{movie.voteAverage}</span>
+                           <Pageview
+                              onClick={toggleModal(movie.id)}
+                              target="_blank"
+                              aria-label="add to favorites"
+                           >
+                              <PageviewIcon />
+                           </Pageview>
+                           {!isPreviewMode && (
+                              <Favorite
+                                 onClick={() => onCardSelect(movie)}
+                                 aria-label="add to favorites"
+                              >
+                                 <FavoriteIcon style={{
+                                    color: 'red',
+                                 }} />
+                              </Favorite>
+                           )}
+                           <img
+                              src={movie.image}
+                              onError={({ currentTarget }) => {
+                                 currentTarget.onerror = null;
+                                 currentTarget.src = noImege;
+                              }}
+                              alt={movie.title}
+                              className="movie__poster"
 
-               />
-            </figcaption>
-            <h2 className="movie__title">{movie.title}</h2>
-         </figure>
-      </div>
+                           />
+                        </figcaption>
+                        <h2 className="movie__title">{movie.title}</h2>
+                     </figure>
+
+                  </div>
+               </Grid>
+            ))
+         }
+         <MovieModal
+            onClose={onCloseMovieModal}
+            open={open}
+            id={movieId}
+         />
+      </>
    );
 };
 
-Movie.propTypes = {
-   movie: PropTypes.shape({
-      image: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      voteAverage: PropTypes.number.isRequired,
-      releaseDate: PropTypes.string
-   }).isRequired,
-   onCardSelect: PropTypes.func,
-   isPreviewMode: PropTypes.bool
-}
 
 
 export default Movie;

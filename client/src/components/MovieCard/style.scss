@@ -15,6 +15,8 @@ img {
  .movie__poster {
    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
    margin-bottom: 0.5em;
+   min-height: 334px;
+   min-width: 224px;
  }
  
  .movie__vote--container{

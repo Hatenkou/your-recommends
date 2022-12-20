@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 export default function PaginationButtons(totalPages) {
    debugger
    return (
-      <Stack spacing={2}>
+      <Stack spacing={2} >
          <Pagination count={totalPages} showFirstButton showLastButton />
       </Stack>
    );

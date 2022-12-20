@@ -21,7 +21,8 @@ export const useFilters = () => {
          ...filter,
          ...filterFields,
          year: +filterFields.year,
-         primaryReleaseYear: +filterFields.primaryReleaseYear
+         primaryReleaseYear: +filterFields.primaryReleaseYear,
+         page: 1
       })
    }, [filter])
 

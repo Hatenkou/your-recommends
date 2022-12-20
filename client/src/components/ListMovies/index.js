@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Paper, Grid } from '@mui/material/';
 
@@ -18,7 +18,6 @@ const ListMovies = styled(Paper)(({ theme }) => ({
 
 const ListMoviesSection = ({ data, onCardSelect, }) => {
 
-
    return (
       <Grid item xs={12} md={8}>
 
@@ -27,21 +26,11 @@ const ListMoviesSection = ({ data, onCardSelect, }) => {
 
 
             <Grid container spacing={2}>
-
-               {
-                  data.movies.results.map((movie) => (
-                     <Grid key={movie.id} item xs={10} md={4} lg={3}>
-                        <Movie
-                           onCardSelect={onCardSelect}
-                           movie={movie}
-                        />
-                     </Grid >
-                  ))
-               }
-
-
+               <Movie
+                  onCardSelect={onCardSelect}
+                  data={data}
+               />
             </Grid >
-
 
          </ListMovies >
 

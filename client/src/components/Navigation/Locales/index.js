@@ -27,10 +27,11 @@ export default function Locales() {
    };
 
    return (
-      <Box sx={{ minWidth: 120 }}>
+      <Box sx={{ color: 'white', minWidth: 120 }}>
          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Language</InputLabel>
+            <InputLabel sx={{ color: 'white' }} id="demo-simple-select-label">Language</InputLabel>
             <Select
+               sx={{ color: 'white' }}
                labelId="demo-simple-select-label"
                id="demo-simple-select"
                value={locale}
