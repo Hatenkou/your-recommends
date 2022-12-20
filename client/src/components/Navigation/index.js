@@ -17,13 +17,13 @@ const Navigation = () => {
 
    return (
       <Box >
-         <AppBar position="static">
+         <AppBar position="static" sx={{ bgcolor: "#0e062e", padding: "5px" }}>
 
             <Container maxWidth="xl">
                <Toolbar>
 
 
-                  <Link component={RouterLink} to="/" sx={{ flexGrow: 1 }}>
+                  <Link component={RouterLink} to="/" sx={{ textDecoration: 'none', flexGrow: 1 }}>
                      <Typography variant="h6" component="div" sx={{ color: "white", flexGrow: 1 }}>
                         <FormattedMessage id="navigation.home" />
                      </Typography>

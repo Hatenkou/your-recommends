@@ -16,17 +16,17 @@ import {
   ApolloProvider,
   HttpLink,
   ApolloLink,
-  from
+  from,
 } from "@apollo/client";
-
 import I18nProvider from './providers/i18n';
 import { AppContext } from './providers/appContext';
 import { Navigation } from '../src/components/index';
 import { Home, Reccomend, MoviePage } from './pages/index';
-//1
+
+
 function App() {
+  const httpLink = new HttpLink({ uri: `http://localhost:3000/graphql` });
   const { state } = useContext(AppContext);
-  const httpLink = new HttpLink({ uri: `graphql` });
   const localeMiddleware = new ApolloLink((operation, forward) => {
     const customHeaders = operation.getContext().hasOwnProperty("headers") ? operation.getContext().headers : {};
 
