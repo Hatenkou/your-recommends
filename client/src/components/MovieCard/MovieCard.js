@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import {
    IconButton,
    Link,
-   Grid,
 } from '@mui/material/';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PageviewIcon from '@mui/icons-material/Pageview';
@@ -31,7 +30,7 @@ const Favorite = styled(IconButton)(({ theme }) => ({
    bottom: 35,
 }));
 
-const Movie = ({ data, onCardSelect, isPreviewMode, }) => {
+const Movie = ({ movie, onCardSelect, isPreviewMode, }) => {
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -52,53 +51,46 @@ const Movie = ({ data, onCardSelect, isPreviewMode, }) => {
    return (
       <>
 
-         {
-            data.movies.results.map((movie) => (
-               <Grid key={movie.id} item xs={10} md={4} lg={3}>
-                  <div className="movie">
-                     <figure className="movie__figure">
-                        <figcaption className="movie__vote--container">
-                           <span className="movie__vote">{movie.voteAverage}</span>
-                           <Pageview
-                              onClick={toggleModal(movie.id)}
-                              target="_blank"
-                              aria-label="add to favorites"
-                           >
-                              <PageviewIcon />
-                           </Pageview>
-                           {!isPreviewMode && (
-                              <Favorite
-                                 onClick={() => onCardSelect(movie)}
-                                 aria-label="add to favorites"
-                              >
-                                 <FavoriteIcon style={{
-                                    color: 'red',
-                                 }} />
-                              </Favorite>
-                           )}
-                           <img
-                              src={movie.image}
-                              onError={({ currentTarget }) => {
-                                 currentTarget.onerror = null;
-                                 currentTarget.src = noImege;
-                              }}
-                              alt={movie.title}
-                              className="movie__poster"
+         <div className="movie">
+            <figure className="movie__figure">
+               <figcaption className="movie__vote--container">
+                  <span className="movie__vote">{movie.voteAverage}</span>
+                  <Pageview
+                     onClick={toggleModal(movie.id)}
+                     target="_blank"
+                     aria-label="add to favorites"
+                  >
+                     <PageviewIcon />
+                  </Pageview>
+                  {!isPreviewMode && (
+                     <Favorite
+                        onClick={() => onCardSelect(movie)}
+                        aria-label="add to favorites"
+                     >
+                        <FavoriteIcon style={{
+                           color: 'red',
+                        }} />
+                     </Favorite>
+                  )}
+                  <img
+                     src={movie.image}
+                     onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = noImege;
+                     }}
+                     alt={movie.title}
+                     className="movie__poster"
 
-                           />
-                        </figcaption>
-                        <h2 className="movie__title">{movie.title}</h2>
-                     </figure>
+                  />
+               </figcaption>
+               <h2 className="movie__title">{movie.title}</h2>
+            </figure>
 
-                  </div>
-               </Grid>
-            ))
-         }
+         </div>
          <MovieModal
             onClose={onCloseMovieModal}
             open={open}
-            id={movieId}
-         />
+            id={movieId} />
       </>
    );
 };

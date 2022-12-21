@@ -5,6 +5,8 @@ import { Grid } from '@mui/material/';
 import Typography from '@mui/material/Typography';
 import { MOVIES_BY_IDS_QUERY } from "../../queries/queries";
 import Movie from "../../components/MovieCard/MovieCard";
+import ErrorComponent from "../../components/ErrorComponent";
+import Loading from "../../components/Loading";
 
 const Recommend = () => {
 
@@ -18,10 +20,10 @@ const Recommend = () => {
    });
 
    if (loading) {
-      <div>loading...</div>
+      <Loading />
    }
    if (error) {
-      <div>error. Try again</div>
+      <ErrorComponent />
    }
 
    return (
