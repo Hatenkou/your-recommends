@@ -48,8 +48,11 @@ const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
    const { state } = useContext(AppContext);
 
    const onSubmit = ({ listName }) => {
+      const titleName = listName.split(' ').join('-');
+
+
       const ids = selectedMovies.map(({ id }) => id)
-      const link = `${window.location.origin}/recommend?title=${listName}&locale=${state.locale}&ids=${ids.join()}`;
+      const link = `${window.location.origin}/recommend?title=${titleName}&locale=${state.locale}&ids=${ids.join()}`;
       setLink(link);
       setListName(listName);
    }

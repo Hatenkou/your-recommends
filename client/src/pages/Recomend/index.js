@@ -13,6 +13,8 @@ const Recommend = () => {
    const [searchParams] = useSearchParams();
 
 
+   const title = searchParams.get('title').split('-').join(' ');
+
    const { loading, error, data } = useQuery(MOVIES_BY_IDS_QUERY, {
       variables: {
          ids: searchParams.get('ids')?.split(',').map((id) => +id)
@@ -29,7 +31,7 @@ const Recommend = () => {
    return (
       <>
          <Typography variant="h4" gutterBottom>
-            {searchParams.get('title')}
+            {title}
          </Typography>
          {data?.moviesByIds && (
             <Grid sx={{ margin: 1 }} container spacing={2}>

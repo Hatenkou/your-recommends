@@ -32,7 +32,7 @@ const SelectedMoviesForm = ({ onSubmit }) => (
                         {placeholder =>
                            <InputBase
                               sx={{ ml: 1, flex: 1 }}
-                              placeholder={placeholder}
+                              placeholder={placeholder => placeholder.split(/\s+/).join('')}
                               inputProps={{ 'aria-label': 'put list name' }}
                               {...input}
                            />
