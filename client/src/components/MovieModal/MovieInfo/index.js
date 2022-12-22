@@ -7,7 +7,7 @@ import { FormattedMessage } from "react-intl";
 import './style.scss';
 
 
-const MovieInfo = ({ movieId }) => {
+const MovieInfo = ({ movieId, onClose }) => {
    const ID = Number(movieId)
    const { loading, error, data } = useQuery(MOVIE_BY_ID_QUERY, { variables: { id: ID } });
 
@@ -25,6 +25,12 @@ const MovieInfo = ({ movieId }) => {
          {data?.moviePage && (
             <div className="movie_card" >
                <div className="info_section">
+                  <div className='button__container'>
+                     <button
+                        className="button__close-modal"
+                        onClick={() => onClose()}
+                     >X</button>
+                  </div>
                   <div className="movie_header">
                      <img className="locandina" src={data.moviePage.image} alt={data.moviePage.title} />
                      <h1>{data.moviePage.title}</h1>

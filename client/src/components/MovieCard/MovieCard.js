@@ -39,7 +39,7 @@ const Movie = ({ movie, onCardSelect, isPreviewMode, }) => {
 
    const toggleModal = useCallback((id) => () => {
       handleOpen();
-      setMovieId((prev) => id)
+      setMovieId((prev) => id);
    }, []);
 
 

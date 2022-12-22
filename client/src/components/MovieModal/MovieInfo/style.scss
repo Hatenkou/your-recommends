@@ -5,8 +5,8 @@
 .movie_card{
   position: relative;
   display: block;
-  width: 900px;
-  height: 450px;
+  width: 85vw;
+  height: 80vh;
   overflow: hidden;
   border-radius: 10px;
   box-sizing: border-box;
@@ -45,7 +45,7 @@
       }
       .type{
         margin: 0;
-        padding: 0;
+        padding-left: 5px;
         display: flex;
         color: #cee4fd;
       }
@@ -73,6 +73,32 @@
     height: 100%; right: 0;
     background-size: cover;
     border-radius: 11px;
+  }
+  .button__container{
+    position: absolute;
+    right: 0;
+  }
+  .button__close-modal {
+    margin:2px;
+    flex-shrink: 0;
+    display: block;
+    font-size: 1rem;
+    height: 35px;
+    width: 35px;
+    font-weight: bold;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 0.384);
+    border: 1px solid #000;
+    border-radius: 40px;
+    cursor: pointer;
+  
+    transition: all 0.3s;
+  
+    &:hover {
+      transform: rotate(180deg);
+      background-color: #000;
+      color: #fff;
+    }
   }
 }
 

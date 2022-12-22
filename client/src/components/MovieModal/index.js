@@ -10,11 +10,11 @@ const style = {
    top: '50%',
    left: '50%',
    display: 'block',
-   width: '900px',
-   height: '450px',
+   width: '85vw',
+   height: '80vh',
    borderRadius: '10px',
    transform: 'translate(-50%, -50%)',
-   decoration: 'none'
+   outline: "none"
 };
 
 export default function MovieModal({ open, onClose, id }) {
@@ -30,6 +30,7 @@ export default function MovieModal({ open, onClose, id }) {
          >
             <Box sx={style}>
                <MovieInfo
+                  onClose={onClose}
                   movieId={id}
                />
             </Box>
