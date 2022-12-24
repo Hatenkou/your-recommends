@@ -66,4 +66,25 @@ query Genres {
         name
     }
 }
+`
+
+export const MOVIE_VIDEO_QUERY = gql`
+query movieVideo($videoId: Int) {
+  movieVideo(videoId: $videoId) {
+    id
+    results {
+      iso_3166_1
+      iso_639_1
+      key
+      name
+      official
+      published_at
+      site
+      size
+      type
+      id
+    }
+  }
+}
+
 ` 

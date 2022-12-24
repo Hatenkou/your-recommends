@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import MovieInfo from './MovieInfo/index';
+import MovieVideo from './MovieVideo';
 
 
 

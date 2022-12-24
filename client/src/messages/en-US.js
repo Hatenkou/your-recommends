@@ -14,6 +14,7 @@ export default {
       overview: 'Overview',
       time: 'Min.',
       likes: 'likes',
+      Watch_video: 'Watch video',
       filters: {
          sort_by: 'Sort by',
          sort_direction: 'Sort direction',

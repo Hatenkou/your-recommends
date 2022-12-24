@@ -1,13 +1,24 @@
-import React from 'react';
+import { useState, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
 import { MOVIE_BY_ID_QUERY } from "../../../queries/queries";
 import Loading from '../../Loading/index';
 import ErrorComponent from '../../ErrorComponent/index';
 import { FormattedMessage } from "react-intl";
 import './style.scss';
+import MovieVideo from '../MovieVideo';
+
+
 
 
 const MovieInfo = ({ movieId, onClose }) => {
+   const [open, setOpen] = useState(false);
+
+   const handleOpen = () => setOpen(true);
+   const handleClose = () => setOpen(false);
+   const onCloseMovieModal = () => {
+      handleClose();
+   };
+
    const ID = Number(movieId)
    const { loading, error, data } = useQuery(MOVIE_BY_ID_QUERY, { variables: { id: ID } });
 
@@ -28,7 +39,7 @@ const MovieInfo = ({ movieId, onClose }) => {
                   <div className='button__container'>
                      <button
                         className="button__close-modal"
-                        onClick={() => onClose()}
+                        onClick={onClose}
                      >X</button>
                   </div>
                   <div className="movie_header">
@@ -45,6 +56,12 @@ const MovieInfo = ({ movieId, onClose }) => {
                      <div className='header__info'>
                         <h4> {data.moviePage.tagline}</h4>
                         <span className="minutes">{data.moviePage.runTime} <FormattedMessage id="time" /></span>
+                        <button className="watch__button"
+                           onClick={handleOpen}
+                        >
+                           <FormattedMessage id="Watch_video" />
+                        </button>
+
                      </div>
                   </div>
                   <div className="movie_desc">
@@ -68,7 +85,11 @@ const MovieInfo = ({ movieId, onClose }) => {
             </div>
          )
          }
-
+         <MovieVideo
+            movieId={movieId}
+            open={open}
+            onClose={onCloseMovieModal}
+         />
       </>
    );
 }

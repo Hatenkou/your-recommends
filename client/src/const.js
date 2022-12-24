@@ -1,6 +1,7 @@
 export const MAX_SELECTED_MOVIES = 20;
 export const CONFIRM_TIMEOUT = 3500;
 export const SOCIAL_BUTTON_SIZE = 25;
+export const YOU_TUBE_URL = 'https://www.youtube.com/embed/'
 export const LOCALES = {
    ENGLISH: 'en-US',
    UKRANIAN: 'uk'

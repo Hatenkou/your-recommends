@@ -16,6 +16,7 @@ export default {
       overview: 'Огляд',
       time: 'Хв.',
       likes: 'подобається',
+      Watch_video: 'Дивитися відео',
       filters: {
          sort_by: 'Сортувати по',
          sort_direction: 'Напрямок',

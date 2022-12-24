@@ -3,7 +3,7 @@
     moviesByIds(ids:[Int]): [Movie]
     moviePage(id:Int):Movie
     genres: [Genre]
-    video(id:Int):Video
+    movieVideo(videoId:Int):Video
   }
 
 
@@ -62,12 +62,12 @@ type Video{
 
 type ResultsVideo{
   iso_639_1: String
-  iso_3166_1: String
-  name:String
-  key:String
+  iso_3166_1: String!
+  name:String!
+  key:String!
   site:String
   size:Int
-  type:String
+  type:String!
   official:Boolean
   published_at:String
   id:String!

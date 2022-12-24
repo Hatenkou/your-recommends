@@ -1,6 +1,7 @@
 const { discoverMovie, getDetails, getMovie } = require('../modules/movies/index.js')
 const { Movie } = require('../modules/movies/entities/Movie');
 const { getList } = require('../modules/genres/entities/index.js');
+const { getVideo } = require('../modules/video/index.js');
 
 async function movies(parent, args, { locale }) {
 
@@ -37,12 +38,20 @@ async function genres(_, { }, { locale }) {
    return await getList(locale)
 };
 
+async function movieVideo(parent, args, { locale }) {
 
-/*movieVideo*/
+   const data = await getVideo(args.videoId, locale);
+
+   return data
+
+};
+
+/**/
 module.exports = {
    movies,
    moviesByIds,
    moviePage,
    genres,
+   movieVideo,
 
 }
